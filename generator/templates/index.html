@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    
+    <title>Billing</title>
+</head>
+<body>
+    <div class="main" id="main">
+        <div class="header">
+            <div class="name">Arun Kumar G</div>
+            <div class="mobile-number">Mobile Number: 9344433570</div>
+        </div>
+
+        <div class="title">
+            Arun Kumar System
+        </div>
+
+        <div class="work">
+            Car Parking Sheds, Poly Carbonate Roofing, Coated Sheet Rppfing, Fixed Conopy, Aluminium, Awnings & Aluminium Fabrication,
+            Glass Work, Shutter-Mfrs, Services & welding works undertaken AMC for shutters & Glass DOOR
+        </div>
+
+        <div class="header">
+            <div class="name">Bill</div>
+            <div class="mobile-number">Date: <span id="date"></span></div>
+        </div>
+
+        <div class="to-address">
+            <div>To:</div>
+            <div class="address">
+                <div id="address1">Fragrance Shop Pvt Ltd,</div>
+                <div id="address2" >No: 12, Selvi Nagar 2nd St,</div>
+                <div id="address3">Kolathur, Chennai</div>
+            </div>
+        </div>
+
+        <div class="subject">
+            <div>SUB:</div>
+            <div id="subject">Shutter Work</div>
+        </div>
+
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            S.NO
+                        </th>
+                        <th>
+                            DESCRIPTION
+                        </th>
+                        <th>
+                            HSN/SAC
+                        </th>
+                        <th>
+                            QTY
+                        </th>
+                        <th>
+                            UNIT
+                        </th>
+                        <th>
+                            RATE
+                        </th>
+                        <th>
+                            AMOUNT
+                        </th>
+                    </tr>
+                    
+                </thead>
+                <tbody id="tbody">
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="download-button">
+            <button id="download-button">Download PDF</button>
+        </div>
+
+        
+
+        <div class="footer" id="footer">
+            <div class="footer-grid">
+                <div>Bank Name : Indian Bank</div>
+                <div>A/C NO : 796572573</div>
+                <div>Branach : Arumbakkam</div>
+                <div>IFSC Code : IDIB000A132</div>
+                <div>Payee Name : Al-Sabri Fabricator</div>
+            </div>
+
+            <div class="work">
+                No.40/42 Azad Nagar,2<sup>nd</sup> street, Azad Nagar, Aminjikarai, Chennai 600 029
+            </div>
+           <div class="work">
+                     <a href="#">alsabrifabricators@yahoo.in</a>
+           </div>
+        </div>
+
+
+    </div>
+
+
+    
+
+
+    <style>
+        body{
+            min-height: 100vh;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            border: 10px solid black;
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header{
+            width: 100%;
+            position: relative;
+            font-size: 20px;
+            
+        }
+        .name{
+            width: 100%;
+            text-align: center;
+            position: absolute;
+        }
+
+        .mobile-number{
+            position: absolute;
+            right: 0px;
+        }
+
+        .title{
+            width: 100%;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .work{
+            
+            width: 100%;
+            padding: 15px 0px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .to-address{
+            margin-top: 30px;
+            display: flex;
+            column-gap: 10px;
+            font-size: 20px;
+        }
+        .address{
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            font-size: 20px;
+        }
+
+        .to-address > div:first-child{
+            font-weight: bold;
+        }
+
+        .subject{
+            display: flex;
+            column-gap: 10px;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        .subject div:first-child{
+            font-weight: bold;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            
+        }
+
+        .table{
+           
+            height: 350px;
+        }
+        
+        table th{
+            font-size: 15px;
+            padding: 5px;
+            
+        }
+       
+        table, th, td{
+            border:  1px solid black;
+        }
+
+        table td{
+            padding: 5px;
+          
+            border-bottom: none;
+            border-top: none;
+
+        }
+
+        table tr:last-child td:last-child{
+            /* color:  red; */
+            border-top: 1px solid black;
+        }
+
+        .footer-grid{
+            display: grid;
+            grid-template-columns: 400px 400px;
+            font-weight: bold;
+            font-size: 18px;
+        }      
+        .footer{
+            margin-top: 10px;
+        }
+        .footer.align{
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .work:nth-child(2){
+            margin-top: 10px;
+            padding: 0px;
+        }
+
+        .work:last-child a{
+            font-style: italic;
+            margin-bottom: 10px;
+            padding: 0px;
+        }
+
+        .white-space{
+            height: 300px;
+        }
+
+        .download-button{
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        
+
+const descriptionInfo = JSON.parse(localStorage.getItem('descInfo'));
+const descriptionObject = JSON.parse(localStorage.getItem('descObj'));
+
+
+const address1 = document.getElementById('address1');
+const address2 = document.getElementById('address2');
+const address3 = document.getElementById('address3');
+
+const date = document.getElementById('date');
+
+const subject = document.getElementById('subject');
+
+const tableBody = document.getElementById('tbody');
+
+let date1 = new Date(descriptionInfo[0].date);
+let formattedDate =  date1.getDate()+"/"+date1.getMonth()+"/"+date1.getFullYear();
+
+address1.innerHTML = descriptionInfo[0].address1;
+address2.innerHTML = descriptionInfo[0].address2;
+address3.innerHTML = descriptionInfo[0].address3;
+subject.innerHTML = descriptionInfo[0].subject;
+date.innerHTML = formattedDate ;
+
+let tableHtml = "";
+
+let totalAmount = 0;
+
+for(let i=0;i<descriptionObject.length;i++){
+    totalAmount += descriptionObject[i].qty * descriptionObject[i].rate;
+
+    tableHtml += `
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${descriptionObject[i].description}</td>
+                    <td>${descriptionObject[i].hsn}</td>
+                    <td>${descriptionObject[i].qty}</td>
+                    <td>${descriptionObject[i].rate}</td>
+                    <td>${descriptionObject[i].unit}</td>
+                    <td>${descriptionObject[i].qty * descriptionObject[i].rate}</td>
+                </tr>
+            `
+}
+
+tableHtml += `
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>${totalAmount}</td>
+            </tr>
+`
+
+console.log(tableHtml);
+
+tableBody.insertAdjacentHTML('beforeend',tableHtml)
+
+
+console.log(descriptionInfo);
+console.log(descriptionObject);
+
+    </script>
+
+    <script>
+        const downloadButton = document.getElementById('download-button');
+const footer = document.getElementById('footer');
+
+function generatePDF() {
+    downloadButton.style.setProperty('display','none')
+    // Choose the element id which you want to export.
+    var element = document.getElementById('main');
+    element.style.width = '100%';
+    element.style.height = '100%';
+    
+    var opt = {
+        margin:       0.5,
+        filename:     'myfile.pdf',
+        
+        html2canvas:  { scale: 1 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait',precision: '12' }
+      };
+    
+    // choose the element and pass it to html2pdf() function and call the save() on it to save as pdf.
+    html2pdf().set(opt).from(element).save();
+
+    //downloadButton.style.removeProperty('display');
+  }
+
+downloadButton.addEventListener('click', generatePDF);
+    </script>
+</body>
+</html>
